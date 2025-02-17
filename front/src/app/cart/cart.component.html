@@ -1,0 +1,28 @@
+<h1 class="text-center">Votre Panier</h1>
+
+<p-card *ngIf="cart.length > 0" class="block mb-2">
+  <div *ngFor="let product of cart" class="flex justify-between items-center mb-2">
+    <div class="flex items-center">
+      <img [src]="product.image" alt="Product Image" class="w-20 h-20 mr-2" />
+      <span class="text-lg font-medium">{{ product.name }}</span>
+    </div>
+
+    <div class="flex items-center">
+      <input type="number" [(ngModel)]="product.quantity" min="1" class="w-12 text-center" (change)="onQuantityChange(product.id, product.quantity)" />
+      <span class="ml-2">{{ product.price | currency:'MAD' }}</span>
+    </div>
+
+    <p-button label="Supprimer" severity="danger" icon="pi pi-trash" (click)="onRemove(product.id)" class="p-button-sm"/>
+  </div>
+
+  <hr />
+
+  <div class="flex justify-between items-center mt-4">
+    <span class="font-medium text-lg">Total:</span>
+    <span class="text-xl font-bold">{{ getTotalPrice() | currency:'MAD' }}</span>
+  </div>
+</p-card>
+
+<p-card *ngIf="cart.length === 0" class="block mb-2">
+  <div class="text-center text-lg">Votre panier est vide</div>
+</p-card>

@@ -1,0 +1,25 @@
+<h1 class="text-center">Formulaire de Contact</h1>
+
+<form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form-container">
+  <div class="p-fluid">
+    <div class="p-field">
+      <label for="email">Email</label>
+      <input id="email" type="email" pInputText formControlName="email" />
+      <div *ngIf="contactForm.get('email')?.touched && contactForm.get('email')?.invalid" class="error-message">
+        L'email est obligatoire et doit être valide.
+      </div>
+    </div>
+
+    <div class="p-field">
+      <label for="message">Message</label>
+      <textarea id="message" pInputTextarea formControlName="message" rows="5" cols="30"></textarea>
+      <div *ngIf="contactForm.get('message')?.touched && contactForm.get('message')?.invalid" class="error-message">
+        Le message est obligatoire et doit comporter moins de 300 caractères.
+      </div>
+    </div>
+
+    <div class="text-center">
+      <p-button type="submit" label="Envoyer" [disabled]="contactForm.invalid"></p-button>
+    </div>
+  </div>
+</form>
