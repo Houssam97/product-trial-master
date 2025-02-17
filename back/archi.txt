@@ -1,0 +1,11 @@
+src/main/java/com/alten
+├── config/                  # Configuration classes (e.g., SecurityConfig, SwaggerConfig)
+├── controller/              # REST controllers (e.g., ProductController, AuthController)
+├── service/                 # Service interfaces and implementations
+├── repository/              # JPA repositories
+├── model/                   # Entities and DTOs
+│   ├── entity/              # JPA entities (e.g., Product, User)
+│   ├── dto/                 # Data Transfer Objects (e.g., ProductDTO, AuthRequest)
+├── security/                # Security-related classes (e.g., JwtUtil, CustomUserDetailsService)
+├── exception/               # Custom exception handling
+└── EcommerceApplication.java # Main application class
